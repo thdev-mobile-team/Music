@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeKimTanLoc</title>
+    <!-- Import file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" style="display: flex;">
+        <div class="player" style="flex: 2;">
+            <div class="top">
+                <a></a>
+            </div>
+
+            <div class="center">
+                <img class="album" src="image/v2.gif">
+            </div>
+
+            <div class="song_details">
+                <div id="song-name" style="font-size: 20px;">Loading...</div>
+                <div id="artist-name" style="margin-top: 7px;font-size: 10px;">Artist</div>
+            </div>
+
+            <div class="slider">
+                <div class="time">
+                    <div id="current-time">0:00</div>
+                    <div id="duration">0:00</div>
+                </div>
+                <div class="slider_bar">
+                    <div id="inner-slider-bar" class="inner_slider_bar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prev" class="btn">⏮️</button>
+                <button id="play" class="btn">▶️</button>
+                <button id="next" class="btn">⏭️</button>
+            </div>
+
+
+        </div>
+
+        <div id="playlist" class="playlist" style="flex: 2; overflow-y: auto;">
+            <ul>
+                <li onclick="playSong(0)">KARIK BẠN ĐỜI FT. GDUCKY</li>
+                <li onclick="playSong(1)">GHÉ QUA Dick x PC x Tofu</li>
+                <li onclick="playSong(2)">VŨ x DEAR JANE - NHỮNG LỜI HỨA BỎ QUÊN</li>
+
+            </ul>
+        </div>
+        <div class="gif1" style="flex: 1;">
+
+        </div>
+
+        <script>
+            var songs = [
+                'KARIK  FT. GDUCKY -  BẠN ĐỜI.mp3',
+                'Dick x Pc x Tofu - GHÉ QUA.mp3',
+                'VŨ x DEAR JANE - NHỮNG LỜI HỨA BỎ QUÊN.mp3'
+            ];
+            var currentSongIndex = Math.floor(Math.random() * songs.length);
+            var audio = new Audio('music/' + songs[currentSongIndex]);
+            audio.addEventListener('ended', function () {
+                nextSong();
+            });
+            audio.addEventListener('loadedmetadata', function () {
+                document.getElementById('duration').textContent = formatTime(audio.duration);
+            });
+
+            audio.addEventListener('timeupdate', function () {
+                var progressPercent = (audio.currentTime / audio.duration) * 100;
+                document.getElementById('inner-slider-bar').style.width = progressPercent + '%';
+                document.getElementById('current-time').textContent = formatTime(audio.currentTime);
+            });
+
+            function formatTime(seconds) {
+                var min = Math.floor(seconds / 60);
+                var sec = Math.floor(seconds % 60);
+                return min + ':' + (sec < 10 ? '0' : '') + sec;
+            }
+
+            document.getElementById('play').addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+
+            document.getElementById('prev').addEventListener('click', function () {
+                prevSong();
+            });
+
+            document.getElementById('next').addEventListener('click', function () {
+                nextSong();
+            });
+
+            function playSong(index) {
+                currentSongIndex = index;
+                audio.src = 'music/' + songs[currentSongIndex];
+                audio.play();
+                updateSongDetails(songs[currentSongIndex]); // Update song details
+            }
+
+            function nextSong() {
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+                playSong(currentSongIndex);
+            }
+
+            function prevSong() {
+                currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+                playSong(currentSongIndex);
+            }
+
+            function updateSongDetails(songName) {
+                var songDetails = songName.split(' - ');
+                var artist = songDetails[0].trim();
+                var title = songDetails[1].replace('.mp3', '').trim();
+                document.getElementById('artist-name').textContent = artist;
+                document.getElementById('song-name').textContent = title;
+            }
+
+
+            function showPlaylist() {
+                var playlist = document.getElementById('playlist');
+                playlist.style.display = (playlist.style.display == 'none') ? 'block' : 'none';
+            }
+            window.onload = function () {
+                playSong(currentSongIndex);
+            };
+        </script>
+
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <body>
+
+        <footer>
+            <div class="footer">
+                <div class="row">
+                    <a href="https://www.facebook.com/tanloc.lekim/"><i class="fa fa-facebook"></i></a>
+                    <a href="mailto:lekimtanloc2002@gmail.com"><i class="fa fa-envelope"></i></a>
+                </div>
+                <div class="row">
+                    2024 Just for fun, No Ads. || Developed By: Le Kim Tan Loc
+                </div>
+        </footer>
+
+    </body>
+
+</html>
