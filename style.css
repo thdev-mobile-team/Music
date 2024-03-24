@@ -75,6 +75,7 @@ body {
     margin: 0 auto;
     display: block;
     border: solid 2px #3e434c;
+
 }
 
 .playlist {
@@ -177,10 +178,14 @@ body {
     object-fit: cover;
 }
 
+
+
 .song_details {
+    font-style: italic;
     text-align: center;
     margin-top: 40px;
 }
+
 
 .controls {
     display: flex;
@@ -255,4 +260,29 @@ body {
     /* Bóng khi di chuột qua */
     transform: translateY(-4px);
     /* Nút sẽ nhích lên một chút khi di chuột qua */
+}
+
+.playlist ul {
+    list-style: none;
+    /* Loại bỏ dấu chấm mặc định */
+    padding-left: 0;
+    /* Loại bỏ padding mặc định */
+}
+
+.playlist li {
+    padding-left: 1.5em;
+    /* Thêm padding để tạo khoảng trống cho icon */
+    position: relative;
+    /* Đặt vị trí tương đối để icon có thể được định vị */
+}
+
+.playlist li::before {
+    content: "\266B";
+    /* Sử dụng mã Unicode cho nốt nhạc */
+    position: absolute;
+    /* Đặt vị trí tuyệt đối cho icon */
+    left: 0;
+    /* Đặt icon ở bên trái */
+    top: 0;
+    /* Đặt icon ở đầu mỗi dòng */
 }
