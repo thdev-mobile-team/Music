@@ -18,8 +18,18 @@
             
 
             <div class="center">
-                <img class="album" src="image/v2.gif">
+                <img class="album" id="dynamic-image" src="image/v2.gif">
             </div>
+            <script>
+                var currentImageIndex = 1;
+                var imageElement = document.getElementById('dynamic-image');
+            
+                setInterval(function() {
+                    currentImageIndex++;
+                    if(currentImageIndex > 12) currentImageIndex = 2;
+                    imageElement.src = 'image/v' + currentImageIndex + '.gif';
+                }, 3000); // Đổi ảnh mỗi 30 giây
+            </script>
 
             <div class="song_details">
                 <div id="song-name" style="font-size: 20px;">Loading...</div>
