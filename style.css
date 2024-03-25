@@ -11,7 +11,15 @@
     padding: 10px 0;
 }
 
-
+.corgi {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.albu {
+    height: 19.5%;
+    width: 19.5%;
+}
 .row a {
     color: #33383e;
     /* Màu liên kết */
@@ -65,7 +73,7 @@ body {
 .container {
     width: 40%;
     /* Hoặc một giá trị cố định như 960px */
-    margin: 100px auto;
+    margin: 100px auto 0;
     /* 'auto' để căn giữa phần tử */
 }
 
