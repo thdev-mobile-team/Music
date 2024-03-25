@@ -1,286 +1,432 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 🎵 Le Kim Tan Loc 🎵...........</title>
-    <!-- Import file CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>LeKimTanLoc</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Reveal
+    Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
 
-<body>
-    <div class="container" style="display: flex;">
-        <div class="player" style="flex: 2;">
-            <div class="top">
-             
-            </div>
-            
+<body id="body">
 
-            <div class="center">
-                <img class="album" id="dynamic-image" src="image/v2.gif">
-            </div>
-            <script>
-                var currentImageIndex = 1;
-                var imageElement = document.getElementById('dynamic-image');
-            
-                setInterval(function() {
-                    currentImageIndex++;
-                    if(currentImageIndex > 12) currentImageIndex = 2;
-                    imageElement.src = 'image/v' + currentImageIndex + '.gif';
-                }, 3000); // Đổi ảnh mỗi 30 giây
-            </script>
-
-            <div class="song_details">
-                <div id="song-name" style="font-size: 20px;">Loading...</div>
-                <div id="artist-name" style="margin-top: 7px;font-size: 10px;">Artist</div>
-            </div>
-
-            <div class="slider">
-                <div class="time">
-                    <div id="current-time">0:00</div>
-                    <div id="duration">0:00</div>
-                </div>
-                <div class="slider_bar">
-                    <div id="inner-slider-bar" class="inner_slider_bar" style="width: 0%;"></div>
-                </div>
-            </div>
-
-            <div class="controls">
-                <button id="prev" class="btn">⏮️</button>
-                <button id="play" class="btn">▶️</button>
-                <button id="next" class="btn">⏭️</button>
-            </div>
-
-
-        </div>
-
-        <div id="playlist" class="playlist" style="flex: 2; overflow-y: auto;">
-            <ul>
-                <ul>
-                    <li onclick="playSong(0)">Đen ft. MTV - Trốn Tìm</li>
-                    <li onclick="playSong(1)">Taylor Swift - Enchanted</li>
-                    <li onclick="playSong(2)">Charlie Puth - We Don't Talk Anymore</li>
-                    <li onclick="playSong(3)">Đen ft. MIN - Bài Này Chill Phết</li>
-                    <li onclick="playSong(4)">Wiz Khalifa ft. Charlie Puth - See You Again</li>
-                    <li onclick="playSong(5)">Vũ - ĐỢI</li>
-                    <li onclick="playSong(6)">Rihanna - Somewhere Only We Know</li>
-                    <li onclick="playSong(7)">Đen ft. Biên - hai triệu năm</li>
-                    <li onclick="playSong(8)">Taylor Swift - Cardigan</li>
-                    <li onclick="playSong(9)">Đen x JustaTee - Đi Về Nhà</li>
-                    <li onclick="playSong(10)">Vũ - Bước Qua Mùa Cô Đơn</li>
-                    <li onclick="playSong(11)">Ed Sheeran - Perfect</li>
-                    <li onclick="playSong(12)">Taylor Swift - Cruel Summer</li>
-                    <li onclick="playSong(13)">Vũ - ANH NHỚ RA</li>
-                    <li onclick="playSong(14)">Đen ft Giang Pham Triple D - Ngày Khác Lạ</li>
-                    <li onclick="playSong(15)">Da LAB - Từ Ngày Em Đến</li>
-                    <li onclick="playSong(16)">Suni Hạ Linh Rhymastic - Cứ Chill Thôi Chillies</li>
-                    <li onclick="playSong(17)">VŨ x DEAR JANE - NHỮNG LỜI HỨA BỎ QUÊN</li>
-                    <li onclick="playSong(18)">Taylor Swift - Blank Space</li>
-                    <li onclick="playSong(19)">ĐỨC PHÚC - HẾT THƯƠNG CẠN NHỚ</li>
-                    <li onclick="playSong(20)">Wn - W n id T41104 ft. 267</li>
-                    <li onclick="playSong(21)">Lukas Graham - 7 Years</li>
-                    <li onclick="playSong(22)">KARIK FT. GDUCKY - BẠN ĐỜI</li>
-                    <li onclick="playSong(23)">Justin Bieber - Love Yourself</li>
-                    <li onclick="playSong(24)">JUSTATEE x PHƯƠNG LY - THẰNG ĐIÊN</li>
-                    <li onclick="playSong(25)">Vũ - BƯỚC QUA NHAU</li>
-                    <li onclick="playSong(26)">Stephanie Poetri - I Love You 3000</li>
-                    <li onclick="playSong(27)">Dick x Pc x Tofu - GHÉ QUA</li>
-                    <li onclick="playSong(28)">Wn - W n id 072019 3107 ft 267</li>
-                    <li onclick="playSong(29)">Skylar Grey - Everything I Need</li>
-                    <li onclick="playSong(30)">Bùi Anh Tuấn - Thuận Theo Ý Trời</li>
-                    <li onclick="playSong(31)">Christina Perri - A Thousand Years</li>
-                    <li onclick="playSong(32)">Emcee L ft. Lamoon - Hẹn em mai sau gặp lại</li>
-                    <li onclick="playSong(33)">buitruonglinh - Dù Cho Mai Về Sau</li>
-                    <li onclick="playSong(34)">Đen ft. Ngọc Linh - Mười Năm M V Lộn Xộn 3</li>
-                    <li onclick="playSong(35)">Hoàng Dũng - Nàng Thơ</li>
-                    <li onclick="playSong(36)">Hà Anh Tuấn - Tháng Tư Là Lời Nói Dối Của Em</li>
-                    <li onclick="playSong(37)">Charlie Puth - One Call Away</li>
-                    <li onclick="playSong(38)">NW - New West Those Eyes Home Session</li>
-                    <li onclick="playSong(39)">QUÂN A.P - BÔNG HOA ĐẸP NHẤT</li>
-                    <li onclick="playSong(40)">Skylar Grey - Love The Way You Lie</li>
-                    <li onclick="playSong(41)">Madihu Feat. Vũ - Vì Anh Đâu Có Biết</li>
-                    <li onclick="playSong(42)">Justin Bieber - STAY</li>
-                    <li onclick="playSong(43)">Lou Hoàng Miu Lê - Yêu Một Người Có Lẽ</li>
-                    <li onclick="playSong(44)">Thịnh Suy - CHUYỆN RẰNG</li>
-                    <li onclick="playSong(45)">TINO - Ừ Có Anh Đây</li>
-                    <li onclick="playSong(46)">Trinh - Sau này hãy gặp lại nhau khi hoa nở</li>
-                    <li onclick="playSong(47)">VĂN MAI HƯƠNG feat. GREY D TRUNG QUÂN - MƯA THÁNG SÁU</li>
-                    <li onclick="playSong(48)">ANDIEZ - SUÝT NỮA THÌ</li>
-                    <li onclick="playSong(49)">Andiez ft Ruzatori - 1 Phút</li>
-                    <li onclick="playSong(50)">Adam Christopher - So Far Away</li>
-                    <li onclick="playSong(51)">SƠN TÙNG M TP ft Snoop Dogg - HÃY TRAO CHO ANH</li>
-                    <li onclick="playSong(52)">Đen ft. Phương Anh Đào - Lối Nhỏ</li>
-                    <li onclick="playSong(53)">Charlie Puth - We Don t Talk Anymore</li>
-                </ul>
-
-            </ul>
-        </div>
-
-        <div class="gif1" style="flex: 1;">
-
-        </div>
-
-        <script>
-            var songs = [
-                'Đen ft. MTV - Trốn Tìm .mp3',
-                'Taylor Swift - Enchanted.mp3',
-                'Charlie Puth - We Don t Talk Anymore.mp3',
-                'Đen ft. MIN - Bài Này Chill Phết.mp3',
-                'Wiz Khalifa ft. Charlie Puth - See You Again.mp3',
-                'Vũ - ĐỢI.mp3',
-                'Rhianne - Somewhere only we know.mp3',
-                'Đen ft. Biên - hai triệu năm.mp3',
-                'Taylor Swift - Cardigan.mp3',
-                'Đen x JustaTee - Đi Về Nhà.mp3',
-                'Vũ - Bước Qua Mùa Cô Đơn.mp3',
-                'Ed Sheeran - Perfect.mp3',
-                'Taylor Swift - Cruel Summer.mp3',
-                'Vũ - ANH NHỚ RA.mp3',
-                'Đen ft Giang Pham Triple D -  Ngày Khác Lạ.mp3',
-                'Da LAB - Từ Ngày Em Đến.mp3',
-                'Suni Hạ Linh Rhymastic - Cứ Chill Thôi Chillies.mp3',
-                'VŨ x DEAR JANE - NHỮNG LỜI HỨA BỎ QUÊN.mp3',
-                'Taylor Swift - Blank Space.mp3',
-                'ĐỨC PHÚC - HẾT THƯƠNG CẠN NHỚ.mp3',
-                'Wn - W n id T41104 ft. 267.mp3',
-                'Lukas Graham - 7 Years.mp3',
-                'KARIK  FT. GDUCKY - BẠN ĐỜI.mp3',
-                'Justin Bieber - Love Yourself.mp3',
-                'JUSTATEE x PHƯƠNG LY - THẰNG ĐIÊN.mp3',
-                'Vũ - BƯỚC QUA NHAU.mp3',
-                'Stephanie Poetr - I Love You 3000.mp3',
-                'Dick x Pc x Tofu - GHÉ QUA.mp3',
-                'Wn - W n id 072019 3107 ft 267.mp3',
-                'Skylar Grey - Everything I Need.mp3',
-                'Bùi Anh Tuấn - Thuận Theo Ý Trời.mp3',
-                'Christina Perri - A Thousand Years.mp3',
-                'Emcee L ft. Lamoon - Hẹn em mai sau gặp lại.mp3',
-                'buitruonglinh - Dù Cho Mai Về Sau.mp3',
-                'Đen  ft. Ngọc Linh - Mười Năm M V Lộn Xộn 3.mp3',
-                'Hoàng Dũng - Nàng Thơ.mp3',
-                'Hà Anh Tuấn - Tháng Tư Là Lời Nói Dối Của Em.mp3',
-                'Charlie Puth - One Call Away.mp3',
-                'NW - New West Those Eyes Home Session.mp3',
-                'QUÂN A.P - BÔNG HOA ĐẸP NHẤT.mp3',
-                'Skylar Grey - Love The Way You Lie.mp3',
-                'Madihu Feat. Vũ - Vì Anh Đâu Có Biết.mp3',
-                'Justin Bieber - STAY.mp3',
-                'Lou Hoàng Miu Lê - Yêu Một Người Có Lẽ.mp3',
-                'Thịnh Suy - CHUYỆN RẰNG.mp3',
-                'TINO - Ừ Có Anh Đây.mp3',
-                'Trinh - Sau này hãy gặp lại nhau khi hoa nở.mp3',
-                'VĂN MAI HƯƠNG feat. GREY D TRUNG QUÂN - MƯA THÁNG SÁU.mp3',
-                'ANDIEZ - SUÝT NỮA THÌ.mp3',
-                'Andiez ft Ruzatori - 1 Phút.mp3',
-                'Adam Christopher - So Far Away.mp3',
-                'SƠN TÙNG M TP ft  Snoop Dogg - HÃY TRAO CHO ANH.mp3',
-                'Đen  ft. Phương Anh Đào - Lối Nhỏ.mp3'
-            ];
-
-            var currentSongIndex = Math.floor(Math.random() * songs.length);
-            var audio = new Audio('music/' + songs[currentSongIndex]);
-            audio.addEventListener('ended', function () {
-                nextSong();
-            });
-            audio.addEventListener('loadedmetadata', function () {
-                document.getElementById('duration').textContent = formatTime(audio.duration);
-            });
-
-            audio.addEventListener('timeupdate', function () {
-                var progressPercent = (audio.currentTime / audio.duration) * 100;
-                document.getElementById('inner-slider-bar').style.width = progressPercent + '%';
-                document.getElementById('current-time').textContent = formatTime(audio.currentTime);
-            });
-
-            function formatTime(seconds) {
-                var min = Math.floor(seconds / 60);
-                var sec = Math.floor(seconds % 60);
-                return min + ':' + (sec < 10 ? '0' : '') + sec;
-            }
-
-            document.getElementById('play').addEventListener('click', function () {
-                if (audio.paused) {
-                    audio.play();
-                } else {
-                    audio.pause();
-                }
-            });
-
-            document.getElementById('prev').addEventListener('click', function () {
-                prevSong();
-            });
-
-            document.getElementById('next').addEventListener('click', function () {
-                nextSong();
-            });
-
-            function playSong(index) {
-                currentSongIndex = index;
-                audio.src = 'music/' + songs[currentSongIndex];
-                audio.play();
-                updateSongDetails(songs[currentSongIndex]); // Update song details
-            }
-
-            function nextSong() {
-                currentSongIndex = (currentSongIndex + 1) % songs.length;
-                playSong(currentSongIndex);
-            }
-
-            function prevSong() {
-                currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-                playSong(currentSongIndex);
-            }
-
-            function updateSongDetails(songName) {
-                var songDetails = songName.split(' - ');
-                var artist = songDetails[0].trim();
-                var title = songDetails[1].replace('.mp3', '').trim();
-                document.getElementById('artist-name').textContent = artist;
-                document.getElementById('song-name').textContent = title;
-            }
-
-
-            function showPlaylist() {
-                var playlist = document.getElementById('playlist');
-                playlist.style.display = (playlist.style.display == 'none') ? 'block' : 'none';
-            }
-            window.onload = function () {
-                playSong(currentSongIndex);
-            };
-           
-
-        </script>
-
+  <!--==========================
+    Top Bar
+  ============================-->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">lekimtanloc2002@gmail.com</a>
+        <i class="fa fa-phone"></i> +84 962 972 784
+      </div>
+      <div class="social-links float-right">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.facebook.com/tanloc.lekim" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
     </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </section>
 
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
 
-    <body>
-        <footer>
-            <div class="corgi">
-                <div class="row">
-                    <img class="albu" src="image/gif1.gif" alt="Corgi">
-                    <img class="albu" src="image/corgi3.gif" alt="Corgi">
-                    <img class="albu" src="image/corig2.gif" alt="Corgi">
-                    <img class="albu" src="image/corgi4.gif" alt="Corgi">
-                    <img class="albu" src="image/gif5.gif" alt="Corgi">
-                </div>
+      <div id="logo" class="pull-left">
+        <h1><a href="#body" class="scrollto">L<span>oc</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#body">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">My Product</a></li>
+          <li><a href="#portfolio">Services</a></li>
+          <li><a href="#team">Members</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+
+    <div class="intro-content">
+      <h2>Website này được tạo ra không để làm gì cả!<span><br>100%</span></h2>
+      <div>
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="#services" class="btn-projects scrollto">My Product</a>
+      </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel">
+      <div class="item" style="background-image: url('img/intro-carousel/gif1.gif');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/gif2.gif');"></div>
+      <div class="item" style="background-image: url('img/intro-carousel/gif3.gif');"></div>
+    </div>
+
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about" class="wow fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 about-img">
+            <img src="img/intro-carousel/gif5.gif" alt="">
+          </div>
+
+          <div class="col-lg-6 content">
+            <h2>Part-time programmer</h2>
+            <h3>Bug không phải là Lỗi, đó là Tính Năng!</h3>
+
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i>HTML/JavaScript/CSS/Bootstrap
+              </li>
+              <li><i class="ion-android-checkmark-circle"></i>PHP/C#/Kotlin/Java/Python</li>
+              <li><i class="ion-android-checkmark-circle"></i>DynamoDB/MySQL</li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #about -->
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>My products</h2>
+          <p>Các sản phẩm được tạo ra chỉ phục vụ mục đích giải trí và công việc của cá nhân!</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft">
+              <div class="icon"><i class="fa fa-music"></i></div>
+              <h4 class="title"><a href="music.html" target="_blank">Music Player</a></h4>
+              <p class="description">Nghe nhạc chùa không quảng cáo.</p>
             </div>
-        </footer>
-        
+          </div>
 
-        <footer>
-            <div class="footer">
-                <div class="row">
-                    <a href="https://www.facebook.com/tanloc.lekim/"><i class="fa fa-facebook"></i></a>
-                    <a href="mailto:lekimtanloc2002@gmail.com"><i class="fa fa-envelope"></i></a>
-                </div>
-                <div class="row">
-                    2024 Just for fun, No Ads. || Developed By: Le Kim Tan Loc
-                </div>
-        </footer>
+          <div class="col-lg-6">
+            <div class="box wow fadeInRight">
+              <div class="icon"><i class="fa fa-user-secret"></i></div>
+              <h4 class="title"><a href="">Profile</a></h4>
+              <p class="description">Curriculum Vitae!</p>
+            </div>
+          </div>
 
-    </body>
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-bomb"></i></div>
+              <h4 class="title"><a href="">Mystery Box</a></h4>
+              <p class="description">Just for Fun!</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInRight" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-camera-retro"></i></div>
+              <h4 class="title"><a href="">Memory</a></h4>
+              <p class="description">The Photograph Collection</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+
+    <!--==========================
+      Our Portfolio Section
+    ============================-->
+    <section id="portfolio" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>Cái gì làm được thì làm!</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/portfolio/1.jpg" class="portfolio-popup">
+                <img src="img/portfolio/1.jpg" alt="" style="max-width: 100%; height: auto;">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info">
+                    <h2 class="wow fadeInUp">Kotlin</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/portfolio/3.jpg" class="portfolio-popup">
+                <img src="img/portfolio/3.jpg" alt="" style="max-width: 100%; height: auto;">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info">
+                    <h2 class="wow fadeInUp">JavaScript</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/portfolio/2.jpg" class="portfolio-popup">
+                <img src="img/portfolio/2.jpg" alt="" style="max-width: 100%; height: auto;">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info">
+                    <h2 class="wow fadeInUp">Flutter</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp">
+              <a href="img/portfolio/4.jpg" class="portfolio-popup">
+                <img src="img/portfolio/4.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info">
+                    <h2 class="wow fadeInUp">Python</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+
+    <!--==========================
+      Our Team Section
+    ============================-->
+    <section id="team" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Members</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/u3.gif" alt=""></div>
+              <div class="details">
+                <h4>Lê Kim Tấn Lộc</h4>
+                <span>Leader</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/u2.gif" alt=""></div>
+              <div class="details">
+                <h4>Unknown</h4>
+                <span>Member</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/u1.gif" alt=""></div>
+              <div class="details">
+                <h4>Unknown</h4>
+                <span>Member</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/u4.gif" alt=""></div>
+              <div class="details">
+                <h4>Unknown</h4>
+                <span>Member</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Me</h2>
+          <p>Thông tin bên dưới!</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>District 7, Ho Chi Minh City, VietNam</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+840962972784">+84 0962 972 784</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">lekimtanloc2002@gmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container mb-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62719.339510614496!2d106.68714256356486!3d10.73766506862082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752560b050b093%3A0x6dcb89c51055ccc9!2sDistrict%207%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1697119077260!5m2!1sen!2s"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" width="100%" height="380" frameborder="0" style="border:0"
+          allowfullscreen></iframe>
+      </div>
+
+
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        Le <strong> Kim Tan</strong> Loc
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+        -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="lib/sticky/sticky.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
 
 </html>
