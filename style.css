@@ -294,3 +294,39 @@ body {
     top: 0;
     /* Đặt icon ở đầu mỗi dòng */
 }
+.btn-pressed {
+    background-color: #4888e7;
+    box-shadow: 0 5px #666;
+    transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: block;
+        height: 100%;
+        width: 80%;
+    }
+    .player {
+        margin: auto;
+        width: 100%;
+    }
+    .playlist, .gif1 {
+        display: none;
+    }
+
+    .btn{
+        width: 20%;
+        height: 20%;
+        margin-bottom: 50px;
+    }
+    .corgi .row {
+        display: flex;
+
+    }
+    .corgi .row .albu {
+        flex: 0 0 auto;
+    }
+    .footer {
+        margin-top: 0; /* Giảm khoảng cách trên cùng */
+    }
+}
