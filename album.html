@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Photograph Collectio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            grid-gap: 2em;
+            padding: 2em;
+            pointer-events: none;
+        }
+
+        .gallery img {
+            display: block;
+            width: 100%;
+            border-radius: 0.25em;
+            transition: 250ms 50ms;
+            pointer-events: auto;
+        }
+
+        .gallery:hover img:not(:hover) {
+            filter: saturate(0.2) opacity(0.5);
+        }
+
+        /* CSS */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            z-index: 10000;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+          
+        }
+    </style>
+    <!-- partial:index.partial.html -->
+    <section class="gallery">
+        <img src="img/photo/p1.jpg">
+        <img src="img/photo/p14.jpg">
+        <img src="img/photo/p10.jpg">
+        <img src="img/photo/p12.jpg">
+        <img src="img/photo/p2.jpg">
+        <img src="img/photo/p3.jpg">
+        <img src="img/photo/p4.jpg">
+        <img src="img/photo/p5.jpg">
+        <img src="img/photo/p6.jpg">
+        <img src="img/photo/p7.jpg">
+        <img src="img/photo/p8.jpg">
+        <img src="img/photo/p9.jpg">
+     
+        <img src="img/photo/p11.jpg">
+       
+        <img src="img/photo/p13.jpg">
+        
+        <img src="img/photo/p15.jpg">
+        <img src="img/photo/p16.jpg">
+
+
+    </section>
+
+    <!-- partial -->
+    <script>
+        // JavaScript
+        document.addEventListener("keydown", function (event) {
+                if (event.ctrlKey) {
+                    event.preventDefault();
+                }
+                if (event.keyCode == 123) {
+                    event.preventDefault();
+                }
+            });
+            document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('DOMContentLoaded', function () {
+            var gallery = document.querySelector('.gallery');
+            gallery.addEventListener('click', function (event) {
+                var target = event.target;
+                if (target.tagName === 'IMG') {
+                    openFullscreen(target.src);
+                }
+            });
+        });
+
+        function openFullscreen(src) {
+            var fullscreenDiv = document.createElement('div');
+            fullscreenDiv.classList.add('fullscreen');
+
+            var img = document.createElement('img');
+            img.src = src;
+            fullscreenDiv.appendChild(img);
+
+            var closeButton = document.createElement('button');
+            closeButton.textContent = 'Close';
+            closeButton.classList.add('close-btn');
+            closeButton.onclick = function () {
+                document.body.removeChild(fullscreenDiv);
+            };
+            fullscreenDiv.appendChild(closeButton);
+
+            document.body.appendChild(fullscreenDiv);
+        }
+
+    </script>
+
+</body>
+
+</html>
