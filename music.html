@@ -18,7 +18,7 @@
 
 
             <div class="center">
-                <img class="album" id="dynamic-image" src="image/v2.gif">
+                <img class="album" id="dynamic-image" src="image/c1.gif">
             </div>
             <script>
                 var currentImageIndex = 1;
@@ -26,8 +26,8 @@
 
                 setInterval(function () {
                     currentImageIndex++;
-                    if (currentImageIndex > 12) currentImageIndex = 2;
-                    imageElement.src = 'image/v' + currentImageIndex + '.gif';
+                    if (currentImageIndex > 12) currentImageIndex = 1;
+                    imageElement.src = 'image/c' + currentImageIndex + '.gif';
                 }, 3000); // Đổi ảnh mỗi 30 giây
             </script>
 
@@ -59,7 +59,7 @@
             <ul>
                 <ul>
                     <li onclick="playSong(0)">Đen ft. MTV - Trốn Tìm</li>
-                    <li onclick="playSong(1)">Taylor Swift - Enchanted</li>
+                    <li onclick="playSong(1)">Tăng Duy Tân - IKIGAI</li>
                     <li onclick="playSong(2)">Charlie Puth - We Don't Talk Anymore</li>
                     <li onclick="playSong(3)">Đen ft. MIN - Bài Này Chill Phết</li>
                     <li onclick="playSong(4)">Wiz Khalifa ft. Charlie Puth - See You Again</li>
@@ -70,13 +70,13 @@
                     <li onclick="playSong(9)">Đen x JustaTee - Đi Về Nhà</li>
                     <li onclick="playSong(10)">Vũ - Bước Qua Mùa Cô Đơn</li>
                     <li onclick="playSong(11)">Ed Sheeran - Perfect</li>
-                    <li onclick="playSong(12)">Taylor Swift - Cruel Summer</li>
+                    <li onclick="playSong(12)">TĂNG PHÚC - ĐỪNG CHỜ ANH NỮA</li>
                     <li onclick="playSong(13)">Vũ - ANH NHỚ RA</li>
                     <li onclick="playSong(14)">Đen ft Giang Pham Triple D - Ngày Khác Lạ</li>
                     <li onclick="playSong(15)">Da LAB - Từ Ngày Em Đến</li>
                     <li onclick="playSong(16)">Suni Hạ Linh Rhymastic - Cứ Chill Thôi Chillies</li>
                     <li onclick="playSong(17)">VŨ x DEAR JANE - NHỮNG LỜI HỨA BỎ QUÊN</li>
-                    <li onclick="playSong(18)">Taylor Swift - Blank Space</li>
+                    <li onclick="playSong(18)">VU - binh yên</li>
                     <li onclick="playSong(19)">ĐỨC PHÚC - HẾT THƯƠNG CẠN NHỚ</li>
                     <li onclick="playSong(20)">Wn - W n id T41104 ft. 267</li>
                     <li onclick="playSong(21)">Lukas Graham - 7 Years</li>
@@ -139,6 +139,8 @@
                     <li onclick="playSong(78)">TTeam - MUỐN NÓI VỚI EM</li>
                     <li onclick="playSong(79)">WREN EVANS - TỪNG QUEN</li>
                     <li onclick="playSong(80)">Trademark - Only Love</li>
+                    <li onclick="playSong(81)">SOOBIN - Tháng Năm</li>
+                    <li onclick="playSong(82)">Giờ Thì - buitruonglinh</li>
                 </ul>
 
             </ul>
@@ -162,7 +164,7 @@
 
             var songs = [
                 'Đen ft. MTV - Trốn Tìm .mp3',
-                'Taylor Swift - Enchanted.mp3',
+                'Tang Duy Tan - Ikigai.mp3',
                 'Charlie Puth - We Don t Talk Anymore.mp3',
                 'Đen ft. MIN - Bài Này Chill Phết.mp3',
                 'Wiz Khalifa ft. Charlie Puth - See You Again.mp3',
@@ -173,13 +175,13 @@
                 'Đen x JustaTee - Đi Về Nhà.mp3',
                 'Vũ - Bước Qua Mùa Cô Đơn.mp3',
                 'Ed Sheeran - Perfect.mp3',
-                'Taylor Swift - Cruel Summer.mp3',
+                'ĐỪNG CHỜ ANH NỮA - TĂNG PHÚC.mp3',
                 'Vũ - ANH NHỚ RA.mp3',
                 'Đen ft Giang Pham Triple D -  Ngày Khác Lạ.mp3',
                 'Da LAB - Từ Ngày Em Đến.mp3',
                 'Suni Hạ Linh Rhymastic - Cứ Chill Thôi Chillies.mp3',
                 'VŨ x DEAR JANE - NHỮNG LỜI HỨA BỎ QUÊN.mp3',
-                'Taylor Swift - Blank Space.mp3',
+                'binh yên - Vu.mp3',
                 'ĐỨC PHÚC - HẾT THƯƠNG CẠN NHỚ.mp3',
                 'Wn - W n id T41104 ft. 267.mp3',
                 'Lukas Graham - 7 Years.mp3',
@@ -242,6 +244,8 @@
                 'TTeam - MUỐN NÓI VỚI EM.mp3',
                 'WREN EVANS - TỪNG QUEN.mp3',
                 'Trademark - Only Love.mp3',
+                'SOOBIN - Tháng Năm.mp3',
+                'Giờ Thì - buitruonglinh.mp3'
             ];
 
             var currentSongIndex = Math.floor(Math.random() * songs.length);
@@ -321,7 +325,7 @@
 
 
     <body>
-        <footer>
+        <!-- <footer>
             <div class="corgi">
                 <div class="row">
                     <img class="albu" src="image/gif1.gif" alt="Corgi">
@@ -331,7 +335,7 @@
                     <img class="albu" src="image/gif5.gif" alt="Corgi">
                 </div>
             </div>
-        </footer>
+        </footer> -->
 
 
         <footer>

@@ -63,7 +63,7 @@ body {
 }
 
 .gif1 {
-    background-image: url('image/v1.gif');
+    background-image: url('image/c1.gif');
     border-bottom-right-radius: 40px;
     border-top-right-radius: 40px;
     background-position: center;
@@ -91,6 +91,7 @@ body {
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
     background: linear-gradient(to bottom, #33383e 0%, #17191d 100%);
+ 
     margin: 0 auto;
     display: block;
     border: solid 2px #3e434c;
