@@ -10,6 +10,78 @@
 </head>
 
 <body>
+    <script>
+        const canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const snowflakes = [];
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 4 + 1,
+                speed: Math.random() * 3 + 1,
+                opacity: Math.random() * 0.5 + 0.3
+            };
+        }
+
+        function updateSnowflakes() {
+            for (const flake of snowflakes) {
+                flake.y += flake.speed;
+                if (flake.y > canvas.height) {
+                    flake.y = -flake.radius;
+                    flake.x = Math.random() * canvas.width;
+                }
+            }
+        }
+
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+
+            for (const flake of snowflakes) {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.globalAlpha = flake.opacity;
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1; // Reset opacity
+        }
+
+        function loop() {
+            updateSnowflakes();
+            drawSnowflakes();
+            requestAnimationFrame(loop);
+        }
+
+        function initSnow() {
+            const numberOfFlakes = Math.floor(canvas.width / 10);
+            for (let i = 0; i < numberOfFlakes; i++) {
+                snowflakes.push(createSnowflake());
+            }
+            loop();
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            snowflakes.length = 0;
+            initSnow();
+        });
+
+        initSnow();
+    </script>
     <div class="container" style="display: flex;">
         <div class="player" style="flex: 2;">
             <div class="top">
