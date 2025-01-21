@@ -69,22 +69,41 @@
             transform: translate(-50%, -50%);
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 90px 150px;
+            padding: 90px 200px;
+            /* Tăng padding để có thêm không gian cho nội dung */
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             text-align: center;
             display: none;
             /* Ẩn mặc định */
             z-index: 1000;
+            max-width: 80%;
+            /* Giới hạn chiều rộng tối đa */
+            white-space: nowrap;
+            /* Ngăn không cho nội dung xuống dòng */
+            overflow: hidden;
+            /* Ẩn nội dung bị tràn ra ngoài */
+            text-overflow: ellipsis;
+            /* Thêm dấu ba chấm nếu văn bản quá dài */
         }
 
         #resultDialog h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            white-space: nowrap;
+            /* Ngăn không cho tiêu đề xuống dòng */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Dấu ba chấm nếu nội dung quá dài */
         }
 
         #resultDialog p {
             font-size: 2rem;
+            white-space: nowrap;
+            /* Ngăn không cho nội dung xuống dòng */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Dấu ba chấm nếu nội dung quá dài */
         }
 
         .closeButton {
