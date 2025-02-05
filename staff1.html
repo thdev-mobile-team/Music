@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('/img/tet.jpg');
+            background-image: url('/img/tet.png');
             background-size: cover;
             background-position: center;
             font-family: Arial, sans-serif;
@@ -131,7 +131,7 @@
 
         function generateRandomNumber() {
             if (running) return;
-            if (usedNumbers.size === 31) {
+            if (usedNumbers.size === 61) {
                 alert("Tất cả số đã được chọn!");
                 return;
             }
@@ -144,7 +144,7 @@
             let elapsedTime = 0;
 
             const intervalId = setInterval(() => {
-                randomNum = Math.floor(Math.random() * 31) + 1;
+                randomNum = Math.floor(Math.random() * 61) + 1;
                 numberDisplay.textContent = randomNum.toString().padStart(3, '0');
                 elapsedTime += interval;
                 if (elapsedTime >= duration) {
