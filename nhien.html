@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🎵 Le Kim Tan Loc 🎵...........</title>
+    <!-- Import file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        const canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const snowflakes = [];
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 4 + 1,
+                speed: Math.random() * 3 + 1,
+                opacity: Math.random() * 0.5 + 0.3
+            };
+        }
+
+        function updateSnowflakes() {
+            for (const flake of snowflakes) {
+                flake.y += flake.speed;
+                if (flake.y > canvas.height) {
+                    flake.y = -flake.radius;
+                    flake.x = Math.random() * canvas.width;
+                }
+            }
+        }
+
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+
+            for (const flake of snowflakes) {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.globalAlpha = flake.opacity;
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1; // Reset opacity
+        }
+
+        function loop() {
+            updateSnowflakes();
+            drawSnowflakes();
+            requestAnimationFrame(loop);
+        }
+
+        function initSnow() {
+            const numberOfFlakes = Math.floor(canvas.width / 10);
+            for (let i = 0; i < numberOfFlakes; i++) {
+                snowflakes.push(createSnowflake());
+            }
+            loop();
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            snowflakes.length = 0;
+            initSnow();
+        });
+
+        initSnow();
+    </script>
+    
+    <div class="container" style="display: flex;">
+        <div class="player" style="flex: 2;">
+            <div class="top">
+
+            </div>
+
+
+            <div class="center">
+                <img class="album" id="dynamic-image" src="image/n1.gif">
+            </div>
+            <script>
+                var currentImageIndex = 1;
+                var imageElement = document.getElementById('dynamic-image');
+
+                setInterval(function () {
+                    currentImageIndex++;
+                    if (currentImageIndex > 15) currentImageIndex = 2;
+                    imageElement.src = 'image/n' + currentImageIndex + '.gif';
+                }, 1000); // Đổi ảnh mỗi 30 giây
+            </script>
+
+            <div class="song_details">
+                <div id="song-name" style="font-size: 20px;">Loading...</div>
+                <div id="artist-name" style="margin-top: 7px;font-size: 10px;">Artist</div>
+            </div>
+
+            <div class="slider">
+                <div class="time">
+                    <div id="current-time">0:00</div>
+                    <div id="duration">0:00</div>
+                </div>
+                <div class="slider_bar">
+                    <div id="inner-slider-bar" class="inner_slider_bar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prev" class="btn">⏮️</button>
+                <button id="play" class="btn">▶️</button>
+                <button id="next" class="btn">⏭️</button>
+            </div>
+
+
+        </div>
+
+        <div id="playlist" class="playlist" style="flex: 2; overflow-y: auto;">
+            <ul>
+                <ul>
+                    <li onclick="playSong(0)">VIẾT TIẾP CÂU CHUYỆN HOÀ BÌNH - NGUYỄN DUYÊN QUỲNH</li>
+                    <li onclick="playSong(1)">MỘT VÒNG VIỆT NAM - Tùng Dương</li>
+                    <li onclick="playSong(2)">THỦY TRIỀU - QUANG HÙNG MASTER D</li>
+                    <li onclick="playSong(3)">BẮC BLING - HOÀ MINZY</li>
+                    <li onclick="playSong(4)">KHÁT VỌNG TUỔI TRẺ - TÙNG DƯƠNG</li>
+                    <li onclick="playSong(5)">Tết Bình An - Hana Cẩm Tiên</li>
+                    <li onclick="playSong(6)">PSY - GANGNAM STYLE</li>
+                    <li onclick="playSong(7)">Một Con Vịt - Nhạc Thiếu Nhi</li>
+                    <li onclick="playSong(8)">LỄ ĐƯỜNG - Hải Long & Salim</li>
+                    <li onclick="playSong(9)">Quang Hùng MasterD - Ánh Mắt Biết Cười</li>
+                    <li onclick="playSong(10)">VỖ CÁI TAY - NHẠC CỬ ĐIỆU  NHẠC HOẠT NÁO</li>
+                    <li onclick="playSong(11)">Như Có Bác Hồ Trong Ngày Vui Đại Thắng - Tốp Ca Nhạc Viện</li>
+                    <li onclick="playSong(12)">Đêm Qua Em Mơ Gặp Bác Hồ - Bài Hát Hay Về Bác Hồ</li>
+                    <li onclick="playSong(13)">Gặp Mẹ Trong Mơ - Thùy Chi</li>
+                    <li onclick="playSong(14)">TRÓI EM LẠI - Quang Hùng MasterD</li>
+                    <li onclick="playSong(15)">W&W - OIIA OIIA</li>
+                    <li onclick="playSong(16)">CÔ GIÁO EM Bé - Ellie KHÁNH NGỌC</li>
+                    <li onclick="playSong(17)">Tết Là Tết - Bé Tú Anh</li>
+                    <li onclick="playSong(18)">Mẹ Ơi Có Biết - Bé Phan Hiếu Kiên</li>
+                    <li onclick="playSong(19)">Xúc Xắc Xúc Xẻ - Bé Tú Anh</li>
+                    <li onclick="playSong(20)">Thùng thình thùng thình, Múa lân ông địa - Nhạc thiếu nhi</li>
+                    <li onclick="playSong(21)">MƯA HÈ ÂM NHẠC LỚP 7 - KẾT NỐI TRI THỨC</li>
+                    <li onclick="playSong(22)">Đội ca Karaoke - Beat</li>
+                    <li onclick="playSong(23)">Khúc nhạc trên nương xa - Âm Nhạc lớp 3</li>
+                    <li onclick="playSong(24)">Đón xuân về - Âm Nhạc lớp 3</li>
+                    <li onclick="playSong(25)">Đẹp mãi tuổi thơ - bài hát mẫu lớp 3</li>
+                    <li onclick="playSong(26)">Hè về vui quá - bài hát mẫu lớp 3</li>
+                    <li onclick="playSong(27)">Ngày hè vui - SGK lớp 2</li>
+                    <li onclick="playSong(28)">Học sinh lớp 2 chăm ngoan - Hà Lực</li>
+                    <li onclick="playSong(29)">tài lộc - nhien</li>
+                    <li onclick="playSong(30)">TRALALERO TRALALA MASHUP - nhien</li>
+                    <li onclick="playSong(31)">TUNG SAHUR - nhien</li>
+                    <li onclick="playSong(32)">Việt Nam Ơi - Nhien</li>
+                    <li onclick="playSong(33)">Máu Đỏ Da Vàng - ERIK</li>
+                    <li onclick="playSong(34)">TÂM TÌNH NGƯỜI LÍNH - THÁI HỌC</li>
+                    <li onclick="playSong(35)">NÓI VỚI EM RẰNG - BÙI ANH TUẤN</li>
+                    <li onclick="playSong(36)">Lời Thầy Cô - Như Hảo Bài Hát</li>
+                    <li onclick="playSong(37)">Bài hát hay nhất - bode</li>
+                    <li onclick="playSong(38)">THÂN SINH PHỤ MẪU Gia Huy - Bé Lê Duy</li>
+                    <li onclick="playSong(39)">Tóc mẹ bạc màu mây - Nhien</li>
+                    <li onclick="playSong(40)">TAI SINH - Tùng Dương</li>
+                    <li onclick="playSong(41)">nhạc nhân sinh quán - Nhien</li>
+                    <li onclick="playSong(42)">Nhạc phim Đi Giữa Trời Rực Rỡ - Ngô Lan Hương</li>
+                    <li onclick="playSong(43)">HÒ KÉO PHÁO - Bảo Hân</li>
+                    <li onclick="playSong(44)">Tạm Biệt Búp Bê Thân Yêu - Thảo Vân</li>
+                    <li onclick="playSong(45)">TĂNG DUY TÂN - CẮT ĐÔI NỖI SẦU</li>
+                    <li onclick="playSong(46)">Phong Max - Hoa Cỏ Lau</li>
+                    <li onclick="playSong(47)">Chúc thọ song thân - Làng Độ</li>
+                    <li onclick="playSong(48)">[NHẠC CHẾ] - Đại Tỷ Yến Tuna</li>
+                    <li onclick="playSong(49)">Em Là Mầm Non Của Đảng Mộng Lân - Nhien</li>
+                    <li onclick="playSong(50)">TET NAY CON SE VE - BÙI CÔNG NAM</li>
+                    <li onclick="playSong(51)">TUỔI TRẺ THẾ HỆ BÁC HỒ - Tùng Dương</li>
+                    <li onclick="playSong(52)">Nối Vòng Tay Lớn - Trịnh Công Sơn</li>
+                    <li onclick="playSong(53)">MẤT BÒ SIU SIN - Nhien</li>                    
+                </ul>
+
+            </ul>
+        </div>
+
+        <div class="gif1" style="flex: 1;">
+
+        </div>
+
+        <script>
+            document.addEventListener("keydown", function (event) {
+                if (event.ctrlKey) {
+                    event.preventDefault();
+                }
+                if (event.keyCode == 123) {
+                    event.preventDefault();
+                }
+            });
+            document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+            var songs = [
+                'VIẾT TIẾP CÂU CHUYỆN HOÀ BÌNH - NGUYỄN DUYÊN QUỲNH.mp3',
+                'MỘT VÒNG VIỆT NAM - Tùng Dương.mp3',
+                'THỦY TRIỀU - QUANG HÙNG MASTER D.mp3',
+                'BẮC BLING - HOÀ MINZY.mp3',
+                'KHÁT VỌNG TUỔI TRẺ - TÙNG DƯƠNG.mp3',
+                'Tết Bình An - Hana Cẩm Tiên.mp3',
+                'PSY - GANGNAM STYLE.mp3',
+                'Một Con Vịt - Nhạc Thiếu Nhi.mp3',
+                'LỄ ĐƯỜNG - Hải Long & Salim.mp3',
+                'Quang Hùng MasterD - Ánh Mắt Biết Cười.mp3',
+                'VỖ CÁI TAY - NHẠC CỬ ĐIỆU  NHẠC HOẠT NÁO.mp3',
+                'Như Có Bác Hồ Trong Ngày Vui Đại Thắng - Tốp Ca Nhạc Viện.mp3',
+                'Đêm Qua Em Mơ Gặp Bác Hồ - Bài Hát Hay Về Bác Hồ.mp3',
+                'Gặp Mẹ Trong Mơ  - Thùy Chi.mp3',
+                'TRÓI EM LẠI - Quang Hùng MasterD.mp3',
+                'W&W - OIIA OIIA.mp3',
+                'CÔ GIÁO EM  Bé - Ellie KHÁNH NGỌC.mp3',
+                'Tết Là Tết - Bé Tú Anh.mp3',
+                'Mẹ Ơi Có Biết - Bé Phan Hiếu Kiên.mp3',
+                'Xúc Xắc Xúc Xẻ   - Bé Tú Anh.mp3',
+                'Thùng thình thùng thình, Múa lân ông địa - Nhạc thiếu nhi.mp3',
+                'MƯA HÈ   ÂM NHẠC LỚP 7 - KẾT NỐI TRI THỨC.mp3',
+                'Đội ca Karaoke - Beat.mp3',
+                'Khúc nhạc trên nương xa - Âm Nhạc lớp 3.mp3',
+                'Đón xuân về - Âm Nhạc lớp 3.mp3',
+                'Đẹp mãi tuổi thơ -  bài hát mẫu lớp 3.mp3',
+                'Hè về vui quá - bài hát mẫu lớp 3.mp3',
+                'Ngày hè vui - SGK lớp 2.mp3',
+                'Học sinh lớp 2 chăm ngoan - Hà Lực.mp3',
+                'tài lộc - nhien.mp3',
+                'TRALALERO TRALALA MASHUP - nhien.mp3',
+                'TUNG SAHUR - nhien.mp3',
+                'Việt Nam Ơi - Nhien.mp3',
+                'Máu Đỏ Da Vàng - ERIK.mp3',
+                'TÂM TÌNH NGƯỜI LÍNH - THÁI HỌC.mp3',
+                'NÓI VỚI EM RẰNG - BÙI ANH TUẤN.mp3',
+                'Lời Thầy Cô - Như Hảo  Bài Hát.mp3',
+                'Bài hát hay nhất - bode.mp3',
+                'THÂN SINH PHỤ MẪU  Gia Huy - Bé Lê Duy.mp3',
+                'Tóc mẹ bạc màu mây - Nhien.mp3',
+                'TAI SINH - Tùng Dương.mp3',
+                'nhạc nhân sinh quán - Nhien.mp3',
+                'Nhạc phim Đi Giữa Trời Rực Rỡ - Ngô Lan Hương.mp3',
+                'HÒ KÉO PHÁO - Bảo Hân.mp3',
+                'Tạm Biệt Búp Bê Thân Yêu - Thảo Vân.mp3',
+                'TĂNG DUY TÂN - CẮT ĐÔI NỖI SẦU.mp3',
+                'Phong Max - Hoa Cỏ Lau.mp3',
+                'Chúc thọ song thân - Làng Độ.mp3',
+                '[NHẠC CHẾ] - Đại Tỷ Yến Tuna.mp3',
+                'Em Là Mầm Non Của Đảng  Mộng Lân - Nhien.mp3',
+                'TET NAY CON SE VE - BÙI CÔNG NAM.mp3',
+                'TUỔI TRẺ THẾ HỆ BÁC HỒ - Tùng Dương.mp3',
+                'Nối Vòng Tay Lớn - Trịnh Công Sơn.mp3',
+                'MẤT BÒ  SIU SIN - Nhien.mp3'
+            ];
+
+            var currentSongIndex = Math.floor(Math.random() * songs.length);
+            var audio = new Audio('music/' + songs[currentSongIndex]);
+            audio.addEventListener('ended', function () {
+                nextSong();
+            });
+            audio.addEventListener('loadedmetadata', function () {
+                document.getElementById('duration').textContent = formatTime(audio.duration);
+            });
+
+            audio.addEventListener('timeupdate', function () {
+                var progressPercent = (audio.currentTime / audio.duration) * 100;
+                document.getElementById('inner-slider-bar').style.width = progressPercent + '%';
+                document.getElementById('current-time').textContent = formatTime(audio.currentTime);
+            });
+
+            function formatTime(seconds) {
+                var min = Math.floor(seconds / 60);
+                var sec = Math.floor(seconds % 60);
+                return min + ':' + (sec < 10 ? '0' : '') + sec;
+            }
+
+            document.getElementById('play').addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+
+            document.getElementById('prev').addEventListener('click', function () {
+                prevSong();
+            });
+
+            document.getElementById('next').addEventListener('click', function () {
+                nextSong();
+            });
+
+            function playSong(index) {
+                currentSongIndex = index;
+                audio.src = 'music/' + songs[currentSongIndex];
+                audio.play();
+                updateSongDetails(songs[currentSongIndex]); // Update song details
+            }
+
+            function nextSong() {
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+                playSong(currentSongIndex);
+            }
+
+            function prevSong() {
+                currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+                playSong(currentSongIndex);
+            }
+
+            function updateSongDetails(songName) {
+                var songDetails = songName.split(' - ');
+                var artist = songDetails[0].trim();
+                var title = songDetails[1].replace('.mp3', '').trim();
+                document.getElementById('artist-name').textContent = artist;
+                document.getElementById('song-name').textContent = title;
+            }
+
+
+            function showPlaylist() {
+                var playlist = document.getElementById('playlist');
+                playlist.style.display = (playlist.style.display == 'none') ? 'block' : 'none';
+            }
+            window.onload = function () {
+                playSong(currentSongIndex);
+            };
+        </script>
+
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <body>
+        <footer>
+            <div class="corgi">
+                <div class="row">
+                    <img class="albu" src="image/gif1.gif" alt="Corgi">
+                    <img class="albu" src="image/corgi3.gif" alt="Corgi">
+                    <img class="albu" src="image/corig2.gif" alt="Corgi">
+                    <img class="albu" src="image/corgi4.gif" alt="Corgi">
+                    <img class="albu" src="image/gif5.gif" alt="Corgi">
+                </div>
+            </div>
+        </footer>
+
+
+        <footer>
+            <div class="footer">
+                <div class="row">
+                    <a href="https://www.facebook.com/tanloc.lekim/"><i class="fa fa-facebook"></i></a>
+                    <a href="mailto:lekimtanloc2002@gmail.com"><i class="fa fa-envelope"></i></a>
+                </div>
+                <div class="row">
+                    2024 Just for fun, No Ads. || Developed By: Le Kim Tan Loc
+                </div>
+        </footer>
+
+    </body>
+
+</html>
